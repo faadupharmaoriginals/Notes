@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Routes of Drug Administration — Interactive Digital Study Notes, Mindmaps & Labs</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0B1120;
+      color: #F1F5F9;
+    }
+    .glass-card {
+      background: rgba(30, 41, 59, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+    }
+    .def-box {
+      background: linear-gradient(135deg, rgba(6, 78, 59, 0.55) 0%, rgba(15, 23, 42, 0.85) 100%);
+      border-left: 4px solid #10B981;
+    }
+    .analogy-box {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.45) 0%, rgba(15, 23, 42, 0.85) 100%);
+      border-left: 4px solid #38BDF8;
+    }
+    .flow-node {
+      background: rgba(15, 23, 42, 0.92);
+      border: 1.5px solid rgba(56, 189, 248, 0.45);
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.12);
+    }
+    .flow-arrow {
+      color: #38BDF8;
+      font-weight: 800;
+    }
+    @media print {
+      body { background: #ffffff !important; color: #0f172a !important; }
+      .no-print { display: none !important; }
+      .glass-card { background: #ffffff !important; border: 1px solid #cbd5e1 !important; color: #0f172a !important; box-shadow: none !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-sky-500 selection:text-white">
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden px-4 py-3 rounded-xl bg-emerald-600 text-white font-semibold text-sm shadow-2xl border border-emerald-400 transition-all duration-300">
+    Copied to clipboard!
+  </div>
+
+  <!-- Top Sticky Header -->
+  <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 to-emerald-400 flex items-center justify-center shadow-lg shadow-sky-500/20">
+          <svg class="w-6 h-6 text-slate-950" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base sm:text-lg font-extrabold tracking-tight text-white">Routes of Drug Administration — Study Hub</h1>
+            <span class="hidden sm:inline-block px-2 py-0.5 text-xs font-semibold rounded-full bg-sky-500/20 text-sky-300 border border-sky-500/30">8 Topics</span>
+          </div>
+          <p class="text-xs text-slate-400">Interactive Mindmaps, Flowcharts, Injection Angle Protractor, TDDS Patch Explorer &amp; Quiz</p>
+        </div>
+      </div>
+
+      <!-- Language Mode Toggle & Progress -->
+      <div class="flex items-center gap-2 sm:gap-3 no-print">
+        <div class="hidden md:flex items-center gap-2 bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-800">
+          <span class="text-xs text-slate-400 font-medium">Revised:</span>
+          <div class="w-24 h-2 bg-slate-800 rounded-full overflow-hidden">
+            <div id="masteryBar" class="h-full bg-gradient-to-r from-sky-400 to-emerald-400 transition-all duration-300" style="width: 0%"></div>
+          </div>
+          <span id="masteryText" class="text-xs font-bold text-emerald-400">0/8</span>
+        </div>
+
+        <button id="langToggleBtn" type="button" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-sky-500/20 text-sky-300 border border-sky-400/40 hover:bg-sky-500/30 transition flex items-center gap-1.5">
+          <span id="langBadgeDot" class="w-2 h-2 rounded-full bg-sky-400"></span>
+          <span id="langToggleLabel">Mode: Hinglish + English</span>
+        </button>
+
+        <button id="printBtn" type="button" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700 transition">
+          Print / Save PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Navigation Tabs -->
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center gap-1 sm:gap-2 overflow-x-auto pb-2 no-print">
+      <button type="button" data-tab="notes" class="nav-tab px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-sky-500 text-slate-950 shadow-md shadow-sky-500/20">
+        1. Notes, Mindmaps &amp; Flowcharts
+      </button>
+      <button type="button" data-tab="labs" class="nav-tab px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-slate-900 text-slate-300 hover:bg-slate-800">
+        2. Interactive Labs (Angles &amp; TDDS Patch)
+      </button>
+      <button type="button" data-tab="flashcards" class="nav-tab px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-slate-900 text-slate-300 hover:bg-slate-800">
+        3. Revision Flashcards (10)
+      </button>
+      <button type="button" data-tab="quiz" class="nav-tab px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-slate-900 text-slate-300 hover:bg-slate-800">
+        4. Topper Quiz (8 MCQs)
+      </button>
+    </nav>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="max-w-7xl mx-auto w-full px-4 sm:px-6 py-6 flex-1">
+
+    <!-- ==================== TAB 1: NOTES, MINDMAPS & FLOWCHARTS ==================== -->
+    <section id="tab-notes" class="space-y-6">
+      <!-- Quick Exam Cheat-Code Banner -->
+      <div class="glass-card rounded-2xl p-4 sm:p-5 border border-sky-500/30 bg-gradient-to-r from-slate-900 via-sky-950/40 to-slate-900">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-sky-400">
+              <span>⚡ High-Yield Exam Cheat-Codes (10-Second Recall)</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-200 font-medium">
+              <strong class="text-sky-300">Injection Angles:</strong> ID = 10°–15° &bull; IV = 25° (100% Bioavailability) &bull; SC = 45° (Self-Use) &bull; IM = 90° &nbsp;|&nbsp;
+              <strong class="text-emerald-300">First-Pass Bypass + Self-Use:</strong> Sublingual &amp; Transdermal &nbsp;|&nbsp;
+              <strong class="text-amber-300">Neomycin Tablet:</strong> Swallowed orally for gut sterilization, but Not Absorbed = <strong>Local Route!</strong>
+            </p>
+          </div>
+          <div class="flex items-center gap-2 no-print shrink-0">
+            <input id="searchNotesInput" type="text" placeholder="Search IV, Sublingual, TDDS, BCG..." class="w-48 sm:w-60 px-3.5 py-2 rounded-xl bg-slate-950/90 border border-slate-700 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-sky-400" />
+            <button id="clearSearchBtn" type="button" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition">
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Master Interactive Mindmap of All Routes of Drug Administration -->
+      <div class="glass-card rounded-2xl p-4 sm:p-5 border border-emerald-500/30">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">🧠 Master Visual Classification Mindmap (Click Any Node to Jump to Topic)</span>
+            <h2 class="text-base sm:text-lg font-extrabold text-white">Complete Routes of Drug Administration Tree</h2>
+          </div>
+          <button id="toggleMasterMindmapBtn" type="button" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-sky-300 border border-slate-700 transition no-print">
+            Hide / Show Mindmap
+          </button>
+        </div>
+
+        <div id="masterMindmapBody" class="bg-slate-950/90 rounded-2xl p-4 sm:p-5 border border-slate-800 overflow-x-auto">
+          <div class="flex flex-col items-center min-w-[720px]">
+            <button type="button" data-jump-topic="1" class="mindmap-jump-btn px-5 py-2.5 rounded-2xl bg-gradient-to-r from-sky-500 to-emerald-500 text-slate-950 font-extrabold text-sm sm:text-base shadow-lg shadow-sky-500/20 text-center hover:opacity-95 transition">
+              🧭 ROUTES OF DRUG ADMINISTRATION (Click for Selection Factors: Drug vs. Patient)
+            </button>
+            <div class="h-4 w-0.5 bg-sky-400"></div>
+            <div class="w-4/5 h-0.5 bg-sky-500/60"></div>
+
+            <div class="grid grid-cols-3 gap-4 w-full pt-3">
+              <!-- Branch 1: Local Routes -->
+              <div class="flex flex-col items-center space-y-2">
+                <button type="button" data-jump-topic="2" class="mindmap-jump-btn px-3 py-2 rounded-xl bg-emerald-500/20 border-2 border-emerald-400 text-emerald-200 text-xs font-extrabold text-center w-full hover:bg-emerald-500/30 transition">
+                  1. LOCAL ROUTE (Direct at Site of Action)
+                </button>
+                <div class="text-emerald-400 text-xs font-bold">↓</div>
+                <button type="button" data-jump-topic="2" class="mindmap-jump-btn w-full text-left p-3 rounded-xl flow-node hover:border-emerald-300 transition space-y-1">
+                  <div class="text-xs font-bold text-emerald-300">• Topical (Skin): <span class="text-slate-300 font-normal">Topisal (Psoriasis)</span></div>
+                  <div class="text-xs font-bold text-emerald-300">• Mucosal: <span class="text-slate-300 font-normal">Clotrimazole, Acyclovir, Neomycin (Gut), Vaginal, Urethral</span></div>
+                  <div class="text-xs font-bold text-emerald-300">• Ocular (Eyes) &amp; Intra-Nasal (Nose)</div>
+                </button>
+              </div>
+
+              <!-- Branch 2: Systemic -> Enteral -->
+              <div class="flex flex-col items-center space-y-2">
+                <div class="px-3 py-2 rounded-xl bg-sky-500/20 border-2 border-sky-400 text-sky-200 text-xs font-extrabold text-center w-full">
+                  2A. SYSTEMIC → ENTERAL (Via GI Tract)
+                </div>
+                <div class="text-sky-400 text-xs font-bold">↓</div>
+                <button type="button" data-jump-topic="3" class="mindmap-jump-btn w-full text-left p-2.5 rounded-xl flow-node hover:border-sky-300 transition">
+                  <div class="text-xs font-bold text-white">• Oral Route (Topic 3)</div>
+                  <div class="text-[11px] text-slate-400">Paracetamol, Omeprazole • Safe &amp; Painless</div>
+                </button>
+                <button type="button" data-jump-topic="4" class="mindmap-jump-btn w-full text-left p-2.5 rounded-xl flow-node hover:border-sky-300 transition">
+                  <div class="text-xs font-bold text-white">• Rectal &amp; Sublingual (Topic 4)</div>
+                  <div class="text-[11px] text-slate-400">Suppository (Indomethacin) • Enema (Diazepam) • Sublingual (Nitroglycerin)</div>
+                </button>
+              </div>
+
+              <!-- Branch 3: Systemic -> Parenteral -->
+              <div class="flex flex-col items-center space-y-2">
+                <div class="px-3 py-2 rounded-xl bg-purple-500/20 border-2 border-purple-400 text-purple-200 text-xs font-extrabold text-center w-full">
+                  2B. SYSTEMIC → PARENTERAL (Bypasses GIT)
+                </div>
+                <div class="text-purple-400 text-xs font-bold">↓</div>
+                <button type="button" data-jump-topic="5" class="mindmap-jump-btn w-full text-left p-2 rounded-xl flow-node hover:border-purple-300 transition">
+                  <div class="text-xs font-bold text-white">• Inhalation (Topic 5): <span class="text-slate-400 font-normal">General Anesthesia</span></div>
+                </button>
+                <button type="button" data-jump-topic="6" class="mindmap-jump-btn w-full text-left p-2 rounded-xl flow-node hover:border-purple-300 transition">
+                  <div class="text-xs font-bold text-white">• Injections (Topics 6 &amp; 7): <span class="text-slate-400 font-normal">ID (15°), IV (25°), SC (45°), IM (90°), Special</span></div>
+                </button>
+                <button type="button" data-jump-topic="8" class="mindmap-jump-btn w-full text-left p-2 rounded-xl flow-node hover:border-purple-300 transition">
+                  <div class="text-xs font-bold text-white">• Transdermal TDDS (Topic 8): <span class="text-slate-400 font-normal">3-Layer Patch</span></div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Topic Filter Pills -->
+      <div id="topicFilterBar" class="flex items-center gap-2 overflow-x-auto pb-1 no-print"></div>
+
+      <!-- Dynamic Topic Notes Grid -->
+      <div id="notesContainer" class="grid grid-cols-1 gap-5"></div>
+    </section>
+
+    <!-- ==================== TAB 2: INTERACTIVE LABS (3 SIMULATORS) ==================== -->
+    <section id="tab-labs" class="hidden space-y-8">
+      <!-- Lab 1: Injection Angle & Skin Depth Protractor Simulator -->
+      <div class="glass-card rounded-2xl p-5 sm:p-6">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-sky-400">Interactive Lab 1 • Topics 6 &amp; 7 (04:00 – 05:40)</span>
+            <h2 class="text-lg sm:text-xl font-bold text-white">Interactive Injection Angle Protractor &amp; Tissue Layer Simulator</h2>
+          </div>
+          <span id="angleBadge" class="px-3 py-1 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/40">
+            Selected: Intradermal (10°–15°)
+          </span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-300 mb-4">
+          Click each injection route below to see its exact <strong>Needle Angle</strong>, <strong>Target Anatomical Layer</strong>, <strong>Clinical Examples</strong>, and <strong>Key Exam Rules</strong>:
+        </p>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 mb-5">
+          <button type="button" data-inj="id" class="inj-btn px-3.5 py-2.5 rounded-xl text-xs font-bold border transition bg-sky-500 text-slate-950 border-sky-300">
+            1. Intradermal (10°–15°)
+          </button>
+          <button type="button" data-inj="iv" class="inj-btn px-3.5 py-2.5 rounded-xl text-xs font-bold border transition bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800">
+            2. Intravenous (25°)
+          </button>
+          <button type="button" data-inj="sc" class="inj-btn px-3.5 py-2.5 rounded-xl text-xs font-bold border transition bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800">
+            3. Subcutaneous (45°)
+          </button>
+          <button type="button" data-inj="im" class="inj-btn px-3.5 py-2.5 rounded-xl text-xs font-bold border transition bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800">
+            4. Intramuscular (90°)
+          </button>
+        </div>
+
+        <div class="bg-slate-950 rounded-2xl p-4 border border-slate-800 grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+          <div class="lg:col-span-7">
+            <svg viewBox="0 0 620 240" class="w-full h-56">
+              <!-- Protractor Arc above Skin -->
+              <path d="M 190 90 A 85 85 0 0 1 360 90" fill="none" stroke="#334155" stroke-width="2" stroke-dasharray="4 4" />
+              <text x="175" y="86" fill="#38BDF8" font-size="10" font-weight="bold">15°</text>
+              <text x="192" y="55" fill="#10B981" font-size="10" font-weight="bold">25°</text>
+              <text x="218" y="30" fill="#F59E0B" font-size="10" font-weight="bold">45°</text>
+              <text x="270" y="14" fill="#A855F7" font-size="10" font-weight="bold">90°</text>
+
+              <!-- 4 Anatomical Tissue Layers -->
+              <rect id="layerRect0" x="80" y="90" width="480" height="32" rx="4" fill="#1E3A5F" stroke="#38BDF8" stroke-width="3" />
+              <text x="548" y="110" text-anchor="end" fill="#BAE6FD" font-size="11" font-weight="bold">1. Skin Layers / Dermis (ID: 10°–15°)</text>
+
+              <rect id="layerRect1" x="80" y="124" width="480" height="32" rx="4" fill="#3B1D2E" stroke="#475569" stroke-width="1" />
+              <text x="548" y="144" text-anchor="end" fill="#FDA4AF" font-size="11" font-weight="bold">2. Vein Lumen (IV: 25°)</text>
+
+              <rect id="layerRect2" x="80" y="158" width="480" height="36" rx="4" fill="#42301B" stroke="#475569" stroke-width="1" />
+              <text x="548" y="180" text-anchor="end" fill="#FDE68A" font-size="11" font-weight="bold">3. Subcutaneous Tissue (SC: 45°)</text>
+
+              <rect id="layerRect3" x="80" y="196" width="480" height="38" rx="4" fill="#2E1B42" stroke="#475569" stroke-width="1" />
+              <text x="548" y="219" text-anchor="end" fill="#E9D5FF" font-size="11" font-weight="bold">4. Large Muscle: Gluteus / Deltoid (IM: 90°)</text>
+
+              <!-- Dynamic Needle Shaft & Depot -->
+              <line id="simNeedleLine" x1="175" y1="68" x2="275" y2="105" stroke="#38BDF8" stroke-width="5" stroke-linecap="round" />
+              <circle id="simDepotCircle" cx="275" cy="105" r="9" fill="#38BDF8" />
+            </svg>
+          </div>
+
+          <div class="lg:col-span-5 bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-2.5">
+            <h3 id="injTitle" class="text-base font-extrabold text-sky-400">1. Intradermal (ID) — 10° to 15° Angle</h3>
+            <p id="injArea" class="text-xs text-slate-300"><strong>Target Area:</strong> Injected directly between the layers of the skin.</p>
+            <p id="injExamples" class="text-xs text-emerald-300 font-semibold"><strong>Examples:</strong> BCG Vaccine, drug sensitivity testing.</p>
+            <p id="injNotes" class="text-xs text-slate-300 pt-2 border-t border-slate-800 leading-relaxed">
+              <strong>Key Exam Note:</strong> Shallowest angle of all injections (10°–15°), raising a small bleb between skin layers.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lab 2: 3-Layer Transdermal Patch (TDDS) Interactive Explorer -->
+      <div class="glass-card rounded-2xl p-5 sm:p-6">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Interactive Lab 2 • Topic 8 (05:40 – 06:30)</span>
+            <h2 class="text-lg sm:text-xl font-bold text-white">Membrane-Moderated Transdermal Patch (TDDS) Layer Explorer</h2>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+            Scopolamine &amp; Nitroglycerin Patch
+          </span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-300 mb-4">
+          Click any layer of the <strong>Transdermal Patch</strong> below to inspect its structure and exact physiological function from your lecture diagram:
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+          <div class="lg:col-span-6 space-y-2.5">
+            <button type="button" data-patch="backing" class="patch-layer-btn w-full text-left p-3.5 rounded-xl border-2 transition bg-sky-500/20 border-sky-400 text-white">
+              <div class="flex items-center justify-between">
+                <span class="text-xs sm:text-sm font-extrabold text-sky-300">1. Outermost Covering / Backing Layer</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-900 text-slate-300">Top Layer</span>
+              </div>
+              <p class="text-xs text-slate-300 mt-1">Drug-impermeable metallic plastic laminate (Non-porous).</p>
+            </button>
+
+            <button type="button" data-patch="reservoir" class="patch-layer-btn w-full text-left p-3.5 rounded-xl border transition bg-slate-900 border-slate-700 hover:bg-slate-800 text-white">
+              <div class="flex items-center justify-between">
+                <span class="text-xs sm:text-sm font-extrabold text-emerald-300">2. Drug Reservoir Chamber</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-950 text-slate-400">Middle Core</span>
+              </div>
+              <p class="text-xs text-slate-300 mt-1">Holds desired drug between Backing Layer &amp; Rate-Controlling Membrane.</p>
+            </button>
+
+            <button type="button" data-patch="membrane" class="patch-layer-btn w-full text-left p-3.5 rounded-xl border transition bg-slate-900 border-slate-700 hover:bg-slate-800 text-white">
+              <div class="flex items-center justify-between">
+                <span class="text-xs sm:text-sm font-extrabold text-amber-300">3. Rate-Controlling Polymeric Membrane</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-950 text-slate-400">Porous Grid</span>
+              </div>
+              <p class="text-xs text-slate-300 mt-1">Porous membrane that slowly releases drug toward the skin.</p>
+            </button>
+
+            <button type="button" data-patch="adhesive" class="patch-layer-btn w-full text-left p-3.5 rounded-xl border transition bg-slate-900 border-slate-700 hover:bg-slate-800 text-white">
+              <div class="flex items-center justify-between">
+                <span class="text-xs sm:text-sm font-extrabold text-purple-300">4. Adhesive Layer (+ Peel-Off Liner)</span>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-slate-950 text-slate-400">Skin Contact</span>
+              </div>
+              <p class="text-xs text-slate-300 mt-1">Sticks patch firmly to skin after protective liner is removed prior to use.</p>
+            </button>
+          </div>
+
+          <div class="lg:col-span-6 bg-slate-950 rounded-2xl p-5 border border-slate-800 space-y-3">
+            <span id="patchLayerTag" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-sky-500/20 text-sky-300">LAYER 1 SELECTED</span>
+            <h3 id="patchDetailTitle" class="text-base sm:text-lg font-extrabold text-white">Outermost Covering / Backing Layer</h3>
+            <p id="patchDetailDesc" class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+              <strong>Key Properties:</strong> Made of a drug-impermeable metallic plastic laminate. It is completely <strong>non-porous</strong> and <strong>prevents the reverse (upward) flow of the drug</strong>, ensuring 100% of the drug moves downward toward the skin.
+            </p>
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-emerald-300">
+              <strong>TDDS Clinical Advantage:</strong> Bypasses First-Pass Metabolism, maintains a constant plasma concentration of the drug, and allows easy patient self-administration!
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 3: FLASHCARDS ==================== -->
+    <section id="tab-flashcards" class="hidden space-y-6">
+      <div class="glass-card rounded-2xl p-6 max-w-3xl mx-auto">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-sky-400">Active Recall Deck • Episode 2</span>
+            <h2 class="text-lg sm:text-xl font-bold text-white">Routes of Administration &amp; Injection Angles Flashcards</h2>
+          </div>
+          <span id="fcCounter" class="px-3 py-1 rounded-full text-xs font-bold bg-slate-800 text-sky-300 border border-slate-700">
+            Card 1 of 10
+          </span>
+        </div>
+
+        <div id="flashcardBox" class="cursor-pointer select-none rounded-2xl p-6 sm:p-8 min-h-[250px] flex flex-col justify-between bg-gradient-to-br from-slate-900 via-slate-900 to-sky-950/60 border-2 border-sky-500/40 hover:border-sky-400 transition shadow-xl">
+          <div class="flex items-center justify-between">
+            <span id="fcTopicTag" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-sky-500/20 text-sky-300">Topic 1</span>
+            <span id="fcSideBadge" class="text-xs font-semibold text-slate-400">QUESTION SIDE (Click to Flip)</span>
+          </div>
+
+          <div class="my-6 text-center space-y-3">
+            <h3 id="fcMainText" class="text-lg sm:text-2xl font-extrabold text-white leading-snug"></h3>
+            <p id="fcSubText" class="text-xs sm:text-sm text-sky-300 font-medium"></p>
+          </div>
+
+          <div class="text-center">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-slate-800/90 text-slate-300 border border-slate-700">
+              Tap card or click "Flip Card" to reveal Answer
+            </span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-3 mt-5">
+          <button type="button" id="fcPrevBtn" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 transition">
+            ← Previous
+          </button>
+          <div class="flex items-center gap-2">
+            <button type="button" id="fcFlipBtn" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-sky-500 hover:bg-sky-400 text-slate-950 transition shadow-lg shadow-sky-500/20">
+              Flip Card
+            </button>
+            <button type="button" id="fcShuffleBtn" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30 transition">
+              Shuffle Deck
+            </button>
+          </div>
+          <button type="button" id="fcNextBtn" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 transition">
+            Next →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 4: TOPPER QUIZ ==================== -->
+    <section id="tab-quiz" class="hidden space-y-6">
+      <div class="glass-card rounded-2xl p-5 sm:p-6 max-w-4xl mx-auto">
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-800">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Interactive Self-Test • 8 Questions</span>
+            <h2 class="text-lg sm:text-xl font-bold text-white">Routes of Drug Administration Topper Quiz</h2>
+          </div>
+          <div class="flex items-center gap-3">
+            <span id="quizScoreBadge" class="px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+              Score: 0 / 8
+            </span>
+            <button type="button" id="resetQuizBtn" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+              Reset Quiz
+            </button>
+          </div>
+        </div>
+
+        <div id="quizContainer" class="space-y-5 mt-5"></div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 5: YOUTUBE DESCRIPTION & TIMESTAMPS ==================== -->
+    <section id="tab-youtube" class="hidden space-y-6">
+      <div class="glass-card rounded-2xl p-5 sm:p-6 max-w-4xl mx-auto space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-sky-400">Episode 2 Creator Copy-Paste Toolkit</span>
+            <h2 class="text-lg sm:text-xl font-bold text-white">Ready-to-Paste YouTube Description, Timestamps &amp; Pinned Quiz</h2>
+          </div>
+          <div class="flex items-center gap-2">
+            <button type="button" id="copyYtDescBtn" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-sky-500 hover:bg-sky-400 text-slate-950 transition shadow-lg shadow-sky-500/20">
+              Copy Full Description
+            </button>
+            <button type="button" id="copyPinnedBtn" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition shadow-lg shadow-emerald-500/20">
+              Copy Pinned Comment
+            </button>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <label for="ytDescTextarea" class="text-xs font-bold uppercase tracking-wider text-slate-400">YouTube Video Description Box (Episode 2):</label>
+          <textarea id="ytDescTextarea" rows="18" readonly class="w-full p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs sm:text-sm font-mono text-slate-200 focus:outline-none"></textarea>
+        </div>
+
+        <div class="space-y-2 pt-2">
+          <label for="ytPinnedTextarea" class="text-xs font-bold uppercase tracking-wider text-emerald-400">Pinned Comment (Gamified Engagement Loop):</label>
+          <textarea id="ytPinnedTextarea" rows="4" readonly class="w-full p-4 rounded-xl bg-slate-950 border border-emerald-500/30 text-xs sm:text-sm font-mono text-emerald-200 focus:outline-none"></textarea>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // ==================== DATA: ALL 8 TOPICS OF DOCUMENT 2 ====================
+    const TOPICS_DATA = [
+      {
+        id: 1,
+        title: "1. What is Route of Drug Administration & Determining Factors",
+        etymology: "Drug-Related Factors (Characteristics) + Patient-Related Factors (5)",
+        definition: "Route of Drug Administration is the specific path through which a drug is introduced into the body to produce its therapeutic effect.",
+        hinglishSummary: "Hum Drug ko kis path (raaste) ke through body ke ander bhej rahe hain, usse Route of Drug Administration kehte hain. Iska selection 2 factors par depend karta hai: (1) Drug-related factors (characteristics of drug) aur (2) Patient-related factors (Emergency, Condition, Age, Associated Disease, aur Patient/Doctor ki choice).",
+        englishSummary: "The route of drug administration is the pathway chosen to deliver a medication into the body, governed by drug physicochemical properties and five clinical patient factors: emergency urgency, patient condition, age, associated disease, and physician/patient preference.",
+        analogyTitle: "The Emergency Room GPS Analogy",
+        analogyText: "Agar patient normal adult hai toh Oral route (highway) best hai. Par agar patient emergency mein hai (fast I.V. route chahiye), mouth mein injury hai, ya chota bacha hai jo tablet swallow nahi kar sakta—toh hume turant alternate route choose karna padta hai!",
+        keyBullets: [
+          "1. Drug-Related Factor: Physical & chemical characteristics of the drug",
+          "2. Patient Factor — Emergency Case: Oral is too slow -> Fast I.V. route is used",
+          "3. Patient Factor — Condition & Age: Mouth injury or small child -> Cannot use oral route",
+          "4. Patient Factor — Associated Disease (type, location, severity) & Patient/Doctor's Choice"
+        ]
+      },
+      {
+        id: 2,
+        title: "2. Local Routes of Administration (Topical, Mucosal, Ocular, Intra-Nasal)",
+        etymology: "Direct Delivery at the Exact Site Where Desired Action is Needed",
+        definition: "Local Route is the simplest mode of drug administration where the drug is applied directly at the anatomical site where the pathological problem exists and desired action is needed.",
+        hinglishSummary: "Local route mein jahan body ke ander problem ya infection hai, seedha wahi drug lagate hain. Iske 4 types hain: Topical (skin), Mucosal (mucous membrane), Ocular (eyes), aur Intra-nasal (nose).",
+        englishSummary: "Local administration delivers medication directly to the target tissue or mucous membrane for localized action with minimal systemic absorption, categorized into Topical, Mucosal, Ocular, and Intra-nasal routes.",
+        analogyTitle: "The Neomycin Tablet Exam Twist!",
+        analogyText: "Neomycin tablet patient khata toh mouth se hai (before GI tract surgery to sterilize the gut), par ye GI tract se blood mein absorb NAHI hoti! Iska action sirf GI tract tak limited rehta hai, isliye ye Mucosal (Local) route ka example hai!",
+        keyBullets: [
+          "1. Topical (On Skin): Topisal ointment on skin Psoriasis patches",
+          "2. Mucosal (Oral Cavity): Clotrimazole ointment (Oral Candidiasis) & Acyclovir (Herpes Labialis)",
+          "3. Mucosal (GI, Vaginal, Urethral): Neomycin tablet (gut sterilization before GI surgery; not absorbed), Vaginal candidiasis tablets/creams, Urethral jellies",
+          "4. Ocular (Eye drops, ointments, sprays) & Intra-Nasal (Nose drops, ointments, sprays)"
+        ]
+      },
+      {
+        id: 3,
+        title: "3. Systemic Routes Overview & The Oral Route (Enteral #1)",
+        etymology: "Enteral (Through GI Tract) vs. Parenteral (Bypasses GI Tract)",
+        definition: "In the Enteral Route, the drug travels through the gastrointestinal (GI) tract before entering systemic circulation; Oral administration is the most commonly used and easily acceptable enteral route.",
+        hinglishSummary: "Systemic route 2 types ka hota hai: Enteral (GI tract se hokar blood mein jana) aur Parenteral (GI tract ko bypass karke seedha blood mein jana). Enteral mein sabse common hai Oral Route (Tablet, capsule, powder, syrup)—jaise Fever mein Paracetamol aur Peptic Ulcer mein Omeprazole.",
+        englishSummary: "Systemic routes deliver drugs into the bloodstream via Enteral (through GIT: Oral, Rectal, Sublingual) or Parenteral (bypassing GIT: Injection, Inhalation, Transdermal) pathways. Oral administration uses tablets, capsules, powders, and syrups.",
+        analogyTitle: "Oral Route: 5 Pros vs. 5 Cons Checklist",
+        analogyText: "Oral route safe, sasta (cheaper), painless, convenient aur self-administered hai! Par agar drug irritant hai, GI enzymes se destroy hoti hai (jaise Insulin), ya patient unconscious / vomiting / diarrhea mein hai—toh Oral route fail ho jata hai!",
+        keyBullets: [
+          "Examples: Paracetamol (Fever), Omeprazole (Peptic ulcers)",
+          "5 Advantages: Safe, Cheaper, Painless, Convenient for repeated/prolonged use, Self-administered",
+          "5 Disadvantages: Cannot give unpalatable/irritant drugs, non-absorbable GI drugs, or drugs destroyed by GI enzymes; undesirable in unconscious/uncooperative or severe vomiting/diarrhea patients"
+        ]
+      },
+      {
+        id: 4,
+        title: "4. Enteral Routes #2 & #3 — Rectal Route & Sublingual Route",
+        etymology: "Rectal (Suppository & Enema)  |  Sublingual (Under Tongue -> Buccal Mucosa)",
+        definition: "Rectal administration delivers solid (Suppository) or liquid (Enema) drugs via the anus for local or systemic effects, whereas Sublingual administration places the drug under the tongue for direct absorption through the buccal mucous membrane into systemic circulation.",
+        hinglishSummary: "Rectal route mein anus ke through Suppository (solid, e.g., Indomethacin for rheumatoid arthritis) ya Enema (liquid via applicator, e.g., Diazepam in Status epilepticus) dete hain. Sublingual route mein tablet tongue ke niche rakhte hain (Nitroglycerin, Buprenorphine) jo First-Pass Metabolism bypass karke seedha blood mein jati hai!",
+        englishSummary: "Rectal administration utilizes solid suppositories or liquid enemas for both local and systemic therapy. Sublingual administration absorbs lipid-soluble drugs rapidly across the oral mucosa directly into systemic veins, bypassing hepatic first-pass metabolism.",
+        analogyTitle: "The Sublingual 'Spit-Out' Emergency Brake",
+        analogyText: "Sublingual route ka sabse bada fayda: Quick onset milta hai, First-Pass Metabolism bypass hota hai, aur agar drug ka action turant rokna (terminate karna) ho—toh bas tablet ko spit (thook) do!",
+        keyBullets: [
+          "Rectal Suppository (Solid deposited by finger): Indomethacin for Rheumatoid Arthritis",
+          "Rectal Enema (Liquid via applicator): Diazepam in Status Epilepticus",
+          "Sublingual Examples: Nitroglycerin, Buprenorphine",
+          "Sublingual Pros & Cons: Quick onset, spit out to terminate action, bypasses First-Pass Metabolism, self-administered | Cons: No irritant, lipid-insoluble, or bad-tasting drugs"
+        ]
+      },
+      {
+        id: 5,
+        title: "5. Parenteral Route Overview & Inhalation Route (Parenteral #1)",
+        etymology: "Parenteral = Bypasses GI Tract Directly into Systemic Circulation",
+        definition: "Parenteral Route introduces drugs directly into systemic circulation by bypassing the gastrointestinal tract, offering rapid onset for emergencies via Injections, Inhalation, or Transdermal delivery.",
+        hinglishSummary: "Parenteral route GI tract ko bypass karke seedha systemic blood mein jata hai. Ye emergency, unconscious, aur vomiting patients ke liye best hai, par isme strict aseptic/sterile conditions aur medical expert chahiye. Iska pehla type hai Inhalation Route (volatile liquids & gases—jaise General Anesthesia).",
+        englishSummary: "Parenteral administration bypasses the alimentary canal for rapid, predictable systemic action in emergencies or unconscious patients, though requiring strict asepsis, sterility, and trained personnel. Inhalation delivers volatile liquids and gases across the lungs.",
+        analogyTitle: "Inhalation Route: Minimum Dose, Maximum Safety",
+        analogyText: "Inhalation route (General Anesthesia) ki sabse badi advantage ye hai ki drug ki dose requirement bahut minimum hoti hai—jisse systemic toxicity ke chances bahut kam ho jate hain! Bas local irritation se secretions ya bronchospasm ka dhyan rakhna hota hai.",
+        keyBullets: [
+          "Parenteral Pros: Fast onset (emergencies), usable in unconscious/vomiting patients, suitable for irritant/high first-pass/non-absorbable drugs",
+          "Parenteral Cons: Needs strict aseptic & sterile conditions, expensive, painful, no self-administration (needs expert)",
+          "Inhalation Route: Volatile liquids & gases (General Anesthesia) | Pro: Minimum dose -> very low systemic toxicity | Con: Respiratory secretions & bronchospasm"
+        ]
+      },
+      {
+        id: 6,
+        title: "6. Injection Routes (Part 1) — Intradermal (15°), Subcutaneous (45°) & Intravenous (25°)",
+        etymology: "ID = 10°–15° (Skin Layers)  |  SC = 45° (Subcutaneous Tissue)  |  IV = 25° (Vein)",
+        definition: "Intravenous (IV) injection delivers drug directly into veins at a 25° angle with 100% bioavailability and fastest onset (Route of Choice in Emergencies) via Bolus, Slow IV, or IV Infusion.",
+        hinglishSummary: "Injections area aur angle ke hisaab se lagte hain: (1) Intradermal: 10–15° angle par skin layers ke beech (BCG Vaccine); (2) Subcutaneous: 45° angle par thigh/arm tissue mein, self-injectable, slow absorption (Insulin, Adrenaline); (3) Intravenous (IV): 25° angle par seedha vein mein (Bolus, Slow IV, aur IV Infusion).",
+        englishSummary: "Intradermal (10–15°) targets the dermis for vaccines like BCG; Subcutaneous (45°) targets adipose tissue for slow, self-injectable absorption (Insulin, Adrenaline); Intravenous (25°) enters veins directly via Bolus, Slow IV, or continuous IV Infusion.",
+        analogyTitle: "The 3 IV Modes & 100% Bioavailability",
+        analogyText: "IV ke 3 modes yaad rakho: (1) Bolus = single large dose (IV Ranitidine in bleeding peptic ulcer), (2) Slow IV = Morphine in myocardial infarction (heart attack), (3) IV Infusion = cannula + drip bag (Dopamine in cardiogenic shock)!",
+        keyBullets: [
+          "1. Intradermal (10°–15°): Between skin layers — Example: BCG Vaccine",
+          "2. Subcutaneous (45°): Thigh/arm subcutaneous tissue; patient can self-inject; slow absorption (NOT for emergencies) — Examples: Adrenaline, Insulin",
+          "3. Intravenous (25°): Bolus (IV Ranitidine in bleeding ulcer), Slow IV (Morphine in MI), IV Infusion (Dopamine in cardiogenic shock)",
+          "IV Pros & Cons: 100% bioavailability, emergency choice, large fluids (dehydration), irritant drugs | Cons: Phlebitis, extravasation -> tissue necrosis/sloughing, needs asepsis & expert"
+        ]
+      },
+      {
+        id: 7,
+        title: "7. Injection Routes (Part 2) — Intramuscular (90°) & Specialized Injections",
+        etymology: "IM = 90° (Gluteus Maximus / Deltoid)  |  Intra-Arterial • Intrathecal • Intra-Articular",
+        definition: "Intramuscular (IM) injection delivers medication at a 90° angle into large skeletal muscles (Gluteus Maximus or Deltoid), while specialized injections target arteries (Intra-arterial), spinal subarachnoid space (Intrathecal), or joints (Intra-articular).",
+        hinglishSummary: "Intramuscular (IM) injection 90° angle par body ki large muscles—jaise Gluteus Maximus (largest muscle around hip) ya Deltoid—mein lagta hai (Paracetamol, Diclofenac), par isme nerve injury ka risk hota hai. Iske alawa Intra-arterial (Chemotherapy), Intrathecal (spine), aur Intra-articular (joints) special routes hain.",
+        englishSummary: "Intramuscular injections penetrate deep muscle tissue at 90°, carrying a risk of nerve injury. Specialized routes include Intra-arterial (Carotid/Vertebral artery for chemotherapy), Intrathecal (subarachnoid space), and Intra-articular (joint cavity for rheumatoid arthritis).",
+        analogyTitle: "Protractor Memory Trick: 15° → 25° → 45° → 90°",
+        analogyText: "Jaise-jaise target tissue skin ke ander deep hota jata hai, needle ka angle badhta jata hai: Skin layers (ID = 10–15°) -> Vein (IV = 25°) -> Subcutaneous fat (SC = 45°) -> Deep Muscle (IM = 90°)!",
+        keyBullets: [
+          "Intramuscular (IM — 90° Angle): Large muscles (Gluteus Maximus = largest muscle around hip, Deltoid) — Examples: Paracetamol, Diclofenac | Disadvantage: Nerve injury risk",
+          "Intra-Arterial: Injected into Carotid or Vertebral artery for Chemotherapy patients to improve efficacy",
+          "Intrathecal: Injected into the Subarachnoid space (spinal cord)",
+          "Intra-Articular: Injected directly into a Joint (used in Rheumatoid Arthritis)"
+        ]
+      },
+      {
+        id: 8,
+        title: "8. Transdermal Route (TDDS) & 3-Layer Patch Architecture",
+        etymology: "TDDS = Backing Layer + Drug Reservoir + Rate-Controlling Membrane + Adhesive Layer",
+        definition: "Transdermal Drug Delivery System (TDDS) is a medicated adhesive patch placed on the skin that delivers a drug slowly across the skin into systemic circulation at a controlled rate.",
+        hinglishSummary: "Transdermal route (TDDS) mein ek medicated patch skin par lagate hain jisse drug dheere-dheere absorb hokar blood mein jati hai (Scopolamine patch for motion sickness, Nitroglycerin patch for angina). Patch mein 3 main layers hoti hain aur drug Backing layer aur Rate-controlling membrane ke beech reserved rehti hai.",
+        englishSummary: "Membrane-moderated transdermal patches deliver steady systemic drug levels across the skin, consisting of a non-porous backing layer, a central drug reservoir, a porous rate-controlling polymeric membrane, and a skin-contact adhesive layer protected by a removable liner.",
+        analogyTitle: "Inside the 3-Layer Smart Patch Blueprint",
+        analogyText: "Top par Non-Porous Backing Layer (reverse flow rokti hai) -> Beech mein Drug Reservoir -> Uske niche Porous Rate-Controlling Membrane (drug ko slowly bhejti hai) -> Sabse niche Adhesive Layer (jo peel-off Liner hatane ke baad skin se chipakti hai)!",
+        keyBullets: [
+          "Examples: Scopolamine patch (Motion sickness), Nitroglycerin patch (Angina)",
+          "3 Layers + Reservoir: (1) Outermost Backing Layer (non-porous, prevents reverse flow), (2) Drug Reservoir (between backing & membrane), (3) Rate-Controlling Polymeric Membrane (porous, slow release), (4) Adhesive Layer + removable Liner",
+          "6 Advantages: Self-administered, better compliance, prolonged action, reduced side-effects, constant plasma concentration, bypasses First-Pass Metabolism",
+          "3 Disadvantages: Expensive, local irritation (dermatitis & itching), patch may fall off unnoticed"
+        ]
+      }
+    ];
+
+    // ==================== DATA: 10 FLASHCARDS ====================
+    const FLASHCARDS_DATA = [
+      {
+        topic: "Topic 1 • Selection Factors",
+        q: "What are the 2 main categories of factors that determine the Route of Drug Administration?",
+        a: "1. Drug-Related Factors (Characteristics of drug) & 2. Patient-Related Factors (Emergency case, Condition of patient, Age, Associated disease, Patient/Doctor's choice)."
+      },
+      {
+        topic: "Topic 2 • Local Route & Neomycin",
+        q: "Why is an oral Neomycin tablet (given before GI surgery) classified under the Local Mucosal Route?",
+        a: "Because Neomycin is NOT absorbed from the GI tract into the bloodstream—its sterilizing action remains strictly limited to the gut lumen!"
+      },
+      {
+        topic: "Topic 2 • Topical & Mucosal Examples",
+        q: "Match the drug to the infection: (1) Topisal ointment, (2) Clotrimazole ointment, (3) Acyclovir.",
+        a: "1. Topisal ointment -> Psoriasis patches on skin (Topical) | 2. Clotrimazole -> Oral Candidiasis (Mucosal) | 3. Acyclovir -> Herpes Labialis (Mucosal)."
+      },
+      {
+        topic: "Topic 3 • Enteral vs. Parenteral",
+        q: "What is the core difference between Enteral and Parenteral routes under the Systemic Route?",
+        a: "Enteral: Drug travels through the GI tract before entering systemic circulation (Oral, Rectal, Sublingual). Parenteral: Drug bypasses the GI tract and enters systemic circulation directly (Injection, Inhalation, Transdermal)."
+      },
+      {
+        topic: "Topic 4 • Rectal Route",
+        q: "What are the 2 methods of Rectal administration and their clinical examples?",
+        a: "1. Suppository (solid deposited by finger): Indomethacin for Rheumatoid Arthritis. 2. Enema (liquid via applicator): Diazepam in Status Epilepticus."
+      },
+      {
+        topic: "Topic 4 • Sublingual Route",
+        q: "Give 2 examples of Sublingual drugs and 3 key advantages of the Sublingual route.",
+        a: "Examples: Nitroglycerin, Buprenorphine. Advantages: Quick onset, bypasses First-Pass Metabolism, self-administered, and action can be terminated simply by spitting out the tablet!"
+      },
+      {
+        topic: "Topic 5 • Inhalation Route",
+        q: "What is the biggest advantage and main disadvantage of the Parenteral Inhalation Route (e.g., General Anesthesia)?",
+        a: "Advantage: Minimum dose requirement -> systemic toxicity chances decrease drastically. Disadvantage: Local irritation can increase respiratory secretions and cause bronchospasm."
+      },
+      {
+        topic: "Topic 6 & 7 • The 4 Injection Angles",
+        q: "State the exact Angle of Injection for: (1) Intradermal, (2) Intravenous, (3) Subcutaneous, and (4) Intramuscular.",
+        a: "1. Intradermal (ID) = 10°–15° (BCG) | 2. Intravenous (IV) = 25° | 3. Subcutaneous (SC) = 45° (Insulin, Adrenaline) | 4. Intramuscular (IM) = 90° (Gluteus Maximus/Deltoid)."
+      },
+      {
+        topic: "Topic 6 • 3 Modes of IV Administration",
+        q: "What are the 3 ways to administer an Intravenous (IV) drug, with 1 example of each?",
+        a: "1. Bolus: IV Ranitidine (bleeding peptic ulcer) | 2. Slow IV: Morphine (myocardial infarction) | 3. IV Infusion: Dopamine infusion (cardiogenic shock). IV gives 100% bioavailability!"
+      },
+      {
+        topic: "Topic 8 • Transdermal Patch (TDDS)",
+        q: "Name the 3 layers of a Transdermal Patch (top to bottom) and where the drug is stored.",
+        a: "1. Outermost Backing Layer (non-porous, prevents reverse flow) -> [Drug Reservoir] -> 2. Rate-Controlling Polymeric Membrane (porous, slow release) -> 3. Adhesive Layer (+ removable Liner)."
+      }
+    ];
+
+    // ==================== DATA: 8 QUIZ QUESTIONS ====================
+    const QUIZ_DATA = [
+      {
+        q: "1. [Video 3-Sec Challenge] Neomycin tablet is given before GI surgery to sterilize the gut. Why is it classified as a Local (Mucosal) route instead of Systemic Oral?",
+        options: [
+          "Because it is rubbed on the skin",
+          "Because it enters the GI tract but is NOT absorbed into the body, keeping its action strictly local to the gut",
+          "Because it is injected at a 90° angle",
+          "Because it is inhaled into the lungs"
+        ],
+        correct: 1,
+        explain: "Spot on! Neomycin is not absorbed into systemic circulation, so its action stays strictly inside the GI tract lumen."
+      },
+      {
+        q: "2. Which pair of Mucosal drugs is used in the oral cavity for Oral Candidiasis and Herpes Labialis respectively?",
+        options: [
+          "Paracetamol & Omeprazole",
+          "Clotrimazole ointment & Acyclovir",
+          "Indomethacin & Diazepam",
+          "Scopolamine & Nitroglycerin"
+        ],
+        correct: 1,
+        explain: "Correct! Clotrimazole ointment treats oral candidiasis and Acyclovir treats Herpes Labialis."
+      },
+      {
+        q: "3. In a patient presenting with Status Epilepticus (acute seizures), which drug and Rectal dosage form can be administered?",
+        options: [
+          "Topisal ointment via Topical route",
+          "Diazepam via Rectal Enema (liquid dose via applicator)",
+          "BCG via Intradermal route",
+          "Insulin via Subcutaneous route"
+        ],
+        correct: 1,
+        explain: "Correct! Diazepam is administered via a rectal Enema in Status epilepticus, while Indomethacin suppository is used for rheumatoid arthritis."
+      },
+      {
+        q: "4. Which of the following correctly matches all four Injection Routes with their exact Angle of Injection?",
+        options: [
+          "ID: 90° | SC: 25° | IV: 45° | IM: 15°",
+          "ID: 10°–15° | IV: 25° | SC: 45° | IM: 90°",
+          "ID: 45° | IV: 90° | SC: 15° | IM: 25°",
+          "ID: 25° | IV: 15° | SC: 90° | IM: 45°"
+        ],
+        correct: 1,
+        explain: "100% Correct! Intradermal = 10°–15°, Intravenous = 25°, Subcutaneous = 45°, and Intramuscular = 90°."
+      },
+      {
+        q: "5. Why is the Subcutaneous (SC) route (45° angle, e.g., Insulin) NOT used in medical emergencies?",
+        options: [
+          "Because it has 100% instant bioavailability",
+          "Because the drug is absorbed slowly from subcutaneous tissue",
+          "Because it causes immediate bronchospasm",
+          "Because it can only be given into the carotid artery"
+        ],
+        correct: 1,
+        explain: "Correct! Drug absorption from subcutaneous tissue is slow, so IV (not SC) is the route of choice in emergencies."
+      },
+      {
+        q: "6. Match the 3 Intravenous (IV) modes with their clinical examples from your notes:",
+        options: [
+          "Bolus: IV Ranitidine (Bleeding ulcer) | Slow IV: Morphine (MI) | IV Infusion: Dopamine (Cardiogenic shock)",
+          "Bolus: Insulin | Slow IV: BCG Vaccine | IV Infusion: Topisal",
+          "Bolus: Scopolamine | Slow IV: Neomycin | IV Infusion: Clotrimazole",
+          "Bolus: Paracetamol | Slow IV: Enalapril | IV Infusion: Acyclovir"
+        ],
+        correct: 0,
+        explain: "Exact match! Bolus = IV Ranitidine; Slow IV = Morphine in MI; IV Infusion = Dopamine in cardiogenic shock."
+      },
+      {
+        q: "7. In a Membrane-Moderated Transdermal Patch (TDDS), where is the drug reservoir located and what is the role of the Outermost Backing Layer?",
+        options: [
+          "Outside the skin; it dissolves in water",
+          "Between the Outermost Backing Layer and the Rate-Controlling Polymeric Membrane; the non-porous backing layer prevents reverse flow of the drug",
+          "Below the adhesive liner; it causes first-pass metabolism",
+          "Inside the dermis at a 90° angle"
+        ],
+        correct: 1,
+        explain: "Correct! The drug is reserved between the non-porous backing layer (which prevents reverse flow) and the porous rate-controlling membrane."
+      },
+      {
+        q: "8. [Video Boss Question] Which TWO routes bypass First-Pass Metabolism AND allow the patient to self-administer the medication?",
+        options: [
+          "Intravenous & Intrathecal routes",
+          "Sublingual Route & Transdermal Route (TDDS)",
+          "Intra-arterial & Intra-articular routes",
+          "Intramuscular & Rectal Enema routes"
+        ],
+        correct: 1,
+        explain: "Champion answer! Both Sublingual tablets (e.g., Nitroglycerin) and Transdermal patches (TDDS) bypass hepatic First-Pass Metabolism and can be self-administered by the patient."
+      }
+    ];
+
+    // ==================== STATE ====================
+    let bilingualMode = true;
+    let activeTopicFilter = "all";
+    let masteredTopics = {};
+    try {
+      const saved = localStorage.getItem("pharma_ep2_mastered_v1");
+      if (saved) masteredTopics = JSON.parse(saved);
+    } catch (e) {}
+
+    let fcIndex = 0;
+    let fcFlipped = false;
+    let fcOrder = FLASHCARDS_DATA.map((_, i) => i);
+    let quizAnswers = {};
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.classList.remove("hidden");
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => t.classList.add("hidden"), 2400);
+    }
+
+    function copyTextToClipboard(text, label) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => showToast(label)).catch(() => fallbackCopy(text, label));
+      } else {
+        fallbackCopy(text, label);
+      }
+    }
+
+    function fallbackCopy(text, label) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      showToast(label);
+    }
+
+    function updateMasteryUI() {
+      const count = Object.values(masteredTopics).filter(Boolean).length;
+      const pct = Math.round((count / TOPICS_DATA.length) * 100);
+      document.getElementById("masteryBar").style.width = pct + "%";
+      document.getElementById("masteryText").textContent = count + "/" + TOPICS_DATA.length;
+      try {
+        localStorage.setItem("pharma_ep2_mastered_v1", JSON.stringify(masteredTopics));
+      } catch (e) {}
+    }
+
+    function renderTopicFilterPills() {
+      const bar = document.getElementById("topicFilterBar");
+      let html = `<button type="button" data-filter="all" class="topic-pill px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition ${activeTopicFilter === 'all' ? 'bg-sky-500 text-slate-950' : 'bg-slate-900 text-slate-300 border border-slate-800 hover:bg-slate-800'}">All 8 Topics</button>`;
+      TOPICS_DATA.forEach(t => {
+        const active = String(activeTopicFilter) === String(t.id);
+        html += `<button type="button" data-filter="${t.id}" class="topic-pill px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition ${active ? 'bg-sky-500 text-slate-950' : 'bg-slate-900 text-slate-300 border border-slate-800 hover:bg-slate-800'}">Topic ${t.id}</button>`;
+      });
+      bar.innerHTML = html;
+      bar.querySelectorAll(".topic-pill").forEach(btn => {
+        btn.addEventListener("click", () => {
+          activeTopicFilter = btn.getAttribute("data-filter");
+          renderTopicFilterPills();
+          renderNotes();
+        });
+      });
+    }
+
+    function getTopicFlowchartHTML(id) {
+      const charts = {
+        1: `
+          <div class="min-w-[620px] space-y-2.5 text-xs">
+            <div class="text-center">
+              <span class="inline-block px-4 py-1.5 rounded-xl bg-sky-500 text-slate-950 font-extrabold">FLOWCHART: FACTORS DETERMINING ROUTE SELECTION</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="p-3 rounded-xl flow-node space-y-1">
+                <div class="font-extrabold text-sky-300 border-b border-slate-800 pb-1">1. DRUG-RELATED FACTORS</div>
+                <div class="text-slate-200">• Physical &amp; Chemical <strong>Characteristics of the Drug</strong> (solubility, stability, pH, lipid-solubility)</div>
+              </div>
+              <div class="p-3 rounded-xl flow-node space-y-1">
+                <div class="font-extrabold text-emerald-300 border-b border-slate-800 pb-1">2. PATIENT-RELATED FACTORS (5)</div>
+                <div class="text-slate-200">• <strong>Emergency Case:</strong> Oral too slow → Use Fast <strong>I.V. Route</strong></div>
+                <div class="text-slate-200">• <strong>Patient Condition:</strong> Mouth injury → Cannot use Oral</div>
+                <div class="text-slate-200">• <strong>Age:</strong> Healthy adult (Oral OK) vs. Small child (Needs alternative)</div>
+                <div class="text-slate-200">• <strong>Associated Disease</strong> &amp; <strong>Patient / Doctor's Choice</strong></div>
+              </div>
+            </div>
+          </div>
+        `,
+        2: `
+          <div class="min-w-[640px] space-y-2.5 text-xs">
+            <div class="text-center">
+              <span class="inline-block px-4 py-1.5 rounded-xl bg-emerald-500 text-slate-950 font-extrabold">MINDMAP: 4 TYPES OF LOCAL ROUTES (DIRECT AT SITE OF ACTION)</span>
+            </div>
+            <div class="grid grid-cols-4 gap-2.5">
+              <div class="p-2.5 rounded-xl flow-node">
+                <div class="font-extrabold text-emerald-300">1. TOPICAL (Skin)</div>
+                <div class="text-[11px] text-slate-300 mt-1">• Applied on skin infection<br>• <strong>Topisal ointment</strong> on <strong>Psoriasis</strong> patches</div>
+              </div>
+              <div class="p-2.5 rounded-xl flow-node">
+                <div class="font-extrabold text-sky-300">2. MUCOSAL</div>
+                <div class="text-[11px] text-slate-300 mt-1">• <strong>Clotrimazole</strong> (Oral candidiasis)<br>• <strong>Acyclovir</strong> (Herpes labialis)<br>• <strong>Neomycin</strong> (Gut sterilization; not absorbed)<br>• Vaginal &amp; Urethral jellies</div>
+              </div>
+              <div class="p-2.5 rounded-xl flow-node">
+                <div class="font-extrabold text-amber-300">3. OCULAR (Eyes)</div>
+                <div class="text-[11px] text-slate-300 mt-1">• Eye drops<br>• Eye ointments<br>• Eye sprays</div>
+              </div>
+              <div class="p-2.5 rounded-xl flow-node">
+                <div class="font-extrabold text-purple-300">4. INTRA-NASAL</div>
+                <div class="text-[11px] text-slate-300 mt-1">• Nose drops<br>• Nasal ointments<br>• Nasal sprays</div>
+              </div>
+            </div>
+          </div>
+        `,
+        3: `
+          <div class="min-w-[640px] space-y-2 text-xs">
+            <div class="flex items-center justify-center gap-2">
+              <div class="px-3 py-2 rounded-xl bg-sky-500/20 border border-sky-400 text-sky-200 font-bold text-center">
+                ENTERAL ROUTE<br><span class="text-[10px] font-normal">Travels through GI Tract → Systemic Blood</span>
+              </div>
+              <span class="flow-arrow">──►</span>
+              <div class="px-3.5 py-2 rounded-xl bg-slate-900 border-2 border-emerald-400 text-white font-extrabold text-center">
+                1. ORAL ROUTE (Most Common)<br><span class="text-[10px] text-emerald-300 font-normal">Tablet, Capsule, Powder, Syrup (Paracetamol, Omeprazole)</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 pt-1">
+              <div class="p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-emerald-200">
+                <strong>✅ 5 Advantages:</strong> Safe • Cheaper • Painless • Convenient for repeated/prolonged use • Self-administered
+              </div>
+              <div class="p-2.5 rounded-xl bg-rose-950/40 border border-rose-500/40 text-rose-200">
+                <strong>❌ 5 Disadvantages:</strong> No irritant/unpalatable drugs • No non-absorbed GI drugs • Destroyed by GI enzymes • Not for unconscious/uncooperative • Not for severe vomiting/diarrhea
+              </div>
+            </div>
+          </div>
+        `,
+        4: `
+          <div class="min-w-[640px] grid grid-cols-2 gap-3 text-xs">
+            <div class="p-3 rounded-xl flow-node space-y-1.5">
+              <div class="font-extrabold text-amber-300 border-b border-slate-800 pb-1">2. RECTAL ROUTE (Solid or Liquid via Anus)</div>
+              <div>• <strong>Suppository (Deposited by Finger):</strong> Local &amp; systemic effects → <strong>Indomethacin</strong> for <em>Rheumatoid Arthritis</em></div>
+              <div>• <strong>Enema (Liquid via Applicator):</strong> Local &amp; systemic effects → <strong>Diazepam</strong> in <em>Status Epilepticus</em></div>
+            </div>
+            <div class="p-3 rounded-xl flow-node space-y-1.5">
+              <div class="font-extrabold text-sky-300 border-b border-slate-800 pb-1">3. SUBLINGUAL ROUTE (Under Tongue → Buccal Mucosa)</div>
+              <div>• <strong>Examples:</strong> <strong>Nitroglycerin</strong>, <strong>Buprenorphine</strong></div>
+              <div class="text-emerald-300">• <strong>Pros:</strong> Quick onset • Spit tablet to terminate action • <strong>Bypasses First-Pass Metabolism</strong> • Self-administered</div>
+              <div class="text-rose-300">• <strong>Cons:</strong> Cannot give irritant, lipid-insoluble, or bad-tasting drugs</div>
+            </div>
+          </div>
+        `,
+        5: `
+          <div class="min-w-[640px] space-y-2 text-xs">
+            <div class="flex items-center justify-between gap-2">
+              <div class="px-3 py-2 rounded-xl bg-purple-500/20 border border-purple-400 text-purple-200 font-bold text-center">
+                PARENTERAL ROUTE<br><span class="text-[10px] font-normal">Bypasses GI Tract → Direct to Systemic Blood</span>
+              </div>
+              <span class="flow-arrow">──►</span>
+              <div class="px-3 py-2 rounded-xl flow-node text-center">
+                <strong class="text-sky-300">Parenteral #1: INHALATION ROUTE</strong><br><span class="text-[10px]">Volatile Liquids &amp; Gases (General Anesthesia)</span>
+              </div>
+              <span class="flow-arrow">──►</span>
+              <div class="space-y-1">
+                <div class="px-2.5 py-1 rounded bg-emerald-500/20 border border-emerald-400 text-emerald-200">
+                  <strong>✅ Pro:</strong> Minimum dose → Very low systemic toxicity
+                </div>
+                <div class="px-2.5 py-1 rounded bg-rose-500/20 border border-rose-400 text-rose-200">
+                  <strong>❌ Con:</strong> Local irritation → Secretions &amp; Bronchospasm
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        6: `
+          <div class="min-w-[660px] space-y-2.5 text-xs">
+            <div class="grid grid-cols-3 gap-2.5">
+              <div class="p-2.5 rounded-xl flow-node">
+                <div class="font-extrabold text-sky-300">1. INTRADERMAL (10°–15°)</div>
+                <div class="text-[11px] text-slate-300 mt-1">• Between skin layers<br>• <strong>Example:</strong> BCG Vaccine</div>
+              </div>
+              <div class="p-2.5 rounded-xl flow-node">
+                <div class="font-extrabold text-amber-300">2. SUBCUTANEOUS (45°)</div>
+                <div class="text-[11px] text-slate-300 mt-1">• Thigh/arm subcutaneous tissue<br>• Self-injectable • Slow (Not ER)<br>• <strong>Examples:</strong> Adrenaline, Insulin</div>
+              </div>
+              <div class="p-2.5 rounded-xl bg-emerald-950/40 border-2 border-emerald-400">
+                <div class="font-extrabold text-emerald-300">3. INTRAVENOUS — IV (25°)</div>
+                <div class="text-[11px] text-slate-200 mt-1">• <strong>100% Bioavailability</strong> (ER Choice)<br>• <strong>Bolus:</strong> IV Ranitidine (Ulcer)<br>• <strong>Slow IV:</strong> Morphine (MI)<br>• <strong>Infusion:</strong> Dopamine (Shock)</div>
+              </div>
+            </div>
+          </div>
+        `,
+        7: `
+          <div class="min-w-[660px] grid grid-cols-4 gap-2.5 text-xs">
+            <div class="p-2.5 rounded-xl bg-purple-950/40 border-2 border-purple-400">
+              <div class="font-extrabold text-purple-300">4. INTRAMUSCULAR (90°)</div>
+              <div class="text-[11px] text-slate-200 mt-1">• Large muscles: <strong>Gluteus Maximus</strong> (hip), <strong>Deltoid</strong><br>• Paracetamol, Diclofenac<br>• <span class="text-rose-300">⚠️ Risk: Nerve Injury</span></div>
+            </div>
+            <div class="p-2.5 rounded-xl flow-node">
+              <div class="font-extrabold text-rose-300">INTRA-ARTERIAL</div>
+              <div class="text-[11px] text-slate-300 mt-1">• Into <strong>Carotid</strong> or <strong>Vertebral artery</strong><br>• Used in <strong>Chemotherapy</strong> to improve efficacy</div>
+            </div>
+            <div class="p-2.5 rounded-xl flow-node">
+              <div class="font-extrabold text-sky-300">INTRATHECAL</div>
+              <div class="text-[11px] text-slate-300 mt-1">• Injected into the spinal <strong>Subarachnoid space</strong></div>
+            </div>
+            <div class="p-2.5 rounded-xl flow-node">
+              <div class="font-extrabold text-emerald-300">INTRA-ARTICULAR</div>
+              <div class="text-[11px] text-slate-300 mt-1">• Injected directly into a <strong>Joint</strong><br>• Used in <strong>Rheumatoid Arthritis</strong></div>
+            </div>
+          </div>
+        `,
+        8: `
+          <div class="min-w-[660px] space-y-2 text-xs">
+            <div class="flex items-center justify-between gap-1.5 text-center font-bold">
+              <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-400 flex-1">
+                1. Outermost Backing Layer<br><span class="text-[10px] font-normal text-slate-300">Non-porous • Prevents reverse flow</span>
+              </div>
+              <span class="flow-arrow">──►</span>
+              <div class="p-2.5 rounded-xl bg-sky-500/20 border-2 border-sky-400 text-sky-200 flex-1">
+                [Drug Reservoir]<br><span class="text-[10px] font-normal">Between Backing &amp; Membrane</span>
+              </div>
+              <span class="flow-arrow">──►</span>
+              <div class="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-400 text-emerald-200 flex-1">
+                2. Rate-Controlling Membrane<br><span class="text-[10px] font-normal">Porous • Slow release to skin</span>
+              </div>
+              <span class="flow-arrow">──►</span>
+              <div class="p-2.5 rounded-xl bg-amber-500/20 border border-amber-400 text-amber-200 flex-1">
+                3. Adhesive Layer + Liner<br><span class="text-[10px] font-normal">Sticks to skin → Systemic Blood</span>
+              </div>
+            </div>
+          </div>
+        `
+      };
+      return charts[id] || "";
+    }
+
+    function renderNotes() {
+      const query = document.getElementById("searchNotesInput").value.trim().toLowerCase();
+      const container = document.getElementById("notesContainer");
+
+      const filtered = TOPICS_DATA.filter(t => {
+        if (activeTopicFilter !== "all" && String(t.id) !== String(activeTopicFilter)) return false;
+        if (!query) return true;
+        const haystack = (t.title + " " + t.etymology + " " + t.definition + " " + t.hinglishSummary + " " + t.englishSummary + " " + t.analogyText + " " + t.keyBullets.join(" ")).toLowerCase();
+        return haystack.includes(query);
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="glass-card rounded-2xl p-8 text-center text-slate-400">No topics matched your search. Click <strong>Reset</strong> to view all 8 topics.</div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map(t => {
+        const isDone = !!masteredTopics[t.id];
+        const summaryText = bilingualMode ? t.hinglishSummary : t.englishSummary;
+        return `
+          <article class="glass-card rounded-2xl p-5 sm:p-6 transition hover:border-sky-400/40">
+            <div class="flex flex-wrap items-start justify-between gap-3 pb-3 border-b border-slate-800">
+              <div>
+                <div class="flex flex-wrap items-center gap-2 mb-1">
+                  <span class="px-2.5 py-0.5 rounded-md text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/30">⏱️ ${t.timecode}</span>
+                  <span class="px-2.5 py-0.5 rounded-md text-xs font-semibold bg-slate-800 text-amber-300">${t.etymology}</span>
+                </div>
+                <h2 class="text-lg sm:text-xl font-extrabold text-white">${t.title}</h2>
+              </div>
+
+              <div class="flex items-center gap-2 no-print">
+                <button type="button" data-copy-def="${t.id}" class="copy-def-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+                  Copy Note
+                </button>
+                <button type="button" data-master-id="${t.id}" class="master-btn px-3 py-1.5 rounded-xl text-xs font-bold border transition ${isDone ? 'bg-emerald-500 text-slate-950 border-emerald-400' : 'bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800'}">
+                  ${isDone ? '✓ Revised' : 'Mark Revised'}
+                </button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-4">
+              <div class="lg:col-span-7 space-y-3">
+                <div class="def-box rounded-xl p-3.5">
+                  <div class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">📸 Core Concept &amp; Definition</div>
+                  <p class="text-sm sm:text-base font-semibold text-white leading-relaxed">“${t.definition}”</p>
+                </div>
+
+                <div class="bg-slate-900/75 rounded-xl p-3.5 border border-slate-800">
+                  <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">
+                    ${bilingualMode ? '🗣️ Easy Hinglish Explanation' : '📖 Concise Academic Summary'}
+                  </div>
+                  <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">${summaryText}</p>
+                </div>
+              </div>
+
+              <div class="lg:col-span-5 flex flex-col justify-between gap-3">
+                <div class="analogy-box rounded-xl p-3.5">
+                  <div class="text-xs font-bold uppercase tracking-wider text-sky-300 mb-1">💡 ${t.analogyTitle}</div>
+                  <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">${t.analogyText}</p>
+                </div>
+
+                <div class="bg-slate-950/80 rounded-xl p-3.5 border border-slate-800/90">
+                  <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">📌 High-Yield Exam Points</div>
+                  <ul class="space-y-1.5 text-xs sm:text-sm text-slate-200">
+                    ${t.keyBullets.map(b => `<li class="flex items-start gap-2"><span class="text-sky-400 font-bold">•</span><span>${b}</span></li>`).join("")}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visual Flowchart / Mindmap Section -->
+            <div class="mt-4 pt-4 border-t border-slate-800/90">
+              <div class="flex items-center justify-between mb-2.5">
+                <span class="text-xs font-bold uppercase tracking-wider text-sky-400">🔀 Visual Flowchart &amp; Mindmap Breakdown</span>
+                <span class="text-[11px] text-slate-400">Step-by-step exam diagram</span>
+              </div>
+              <div class="bg-slate-950/90 rounded-xl p-3.5 sm:p-4 border border-slate-800 overflow-x-auto">
+                ${getTopicFlowchartHTML(t.id)}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      container.querySelectorAll(".master-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-master-id");
+          masteredTopics[id] = !masteredTopics[id];
+          updateMasteryUI();
+          renderNotes();
+        });
+      });
+
+      container.querySelectorAll(".copy-def-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = Number(btn.getAttribute("data-copy-def"));
+          const topicObj = TOPICS_DATA.find(x => x.id === id);
+          if (topicObj) {
+            copyTextToClipboard(`${topicObj.title}: "${topicObj.definition}"`, "Concept note copied!");
+          }
+        });
+      });
+    }
+
+    // ==================== INTERACTIVE LABS: ANGLES & TDDS PATCH ====================
+    const INJ_CONFIG = {
+      id: {
+        badge: "Selected: Intradermal (10°–15°)",
+        layerIdx: 0,
+        color: "#38BDF8",
+        x1: 175, y1: 68, x2: 275, y2: 105,
+        title: "1. Intradermal (ID) — 10° to 15° Angle",
+        area: "<strong>Target Area:</strong> Injected directly between the layers of the skin.",
+        examples: "<strong>Examples:</strong> BCG Vaccine, sensitivity tests.",
+        notes: "<strong>Key Exam Note:</strong> Shallowest angle of all injections (10°–15°), depositing a small bleb between skin layers."
+      },
+      iv: {
+        badge: "Selected: Intravenous (25° | 100% Bioavailability)",
+        layerIdx: 1,
+        color: "#10B981",
+        x1: 195, y1: 52, x2: 275, y2: 138,
+        title: "2. Intravenous (IV) — 25° Angle",
+        area: "<strong>Target Area:</strong> Directly into the vein lumen (enters bloodstream directly).",
+        examples: "<strong>3 Modes &amp; Examples:</strong> (1) Bolus: IV Ranitidine in bleeding peptic ulcer | (2) Slow IV: Morphine in myocardial infarction | (3) IV Infusion: Dopamine in cardiogenic shock.",
+        notes: "<strong>Pros &amp; Cons:</strong> 100% bioavailability, fastest onset (Route of Choice in Emergencies), allows large fluids &amp; irritant drugs. Cons: Phlebitis, extravasation (necrosis), needs strict asepsis &amp; expert."
+      },
+      sc: {
+        badge: "Selected: Subcutaneous (45° | Self-Injectable)",
+        layerIdx: 2,
+        color: "#F59E0B",
+        x1: 195, y1: 40, x2: 275, y2: 175,
+        title: "3. Subcutaneous (SC) — 45° Angle",
+        area: "<strong>Target Area:</strong> Subcutaneous tissue beneath skin (mostly thigh &amp; arms).",
+        examples: "<strong>Examples:</strong> Adrenaline, Insulin injections.",
+        notes: "<strong>Key Exam Note:</strong> Patient CAN self-inject! However, absorption is slow, so it is NOT used in emergencies."
+      },
+      im: {
+        badge: "Selected: Intramuscular (90° | Deep Muscle)",
+        layerIdx: 3,
+        color: "#A855F7",
+        x1: 275, y1: 18, x2: 275, y2: 214,
+        title: "4. Intramuscular (IM) — 90° Angle",
+        area: "<strong>Target Area:</strong> Large skeletal muscles — Gluteus Maximus (largest muscle around hip) or Deltoid.",
+        examples: "<strong>Examples:</strong> Paracetamol, Diclofenac injections.",
+        notes: "<strong>Major Disadvantage:</strong> High risk of causing <strong>nerve injury</strong> if injected improperly."
+      }
+    };
+
+    const PATCH_CONFIG = {
+      backing: {
+        tag: "LAYER 1 • TOP COVERING",
+        title: "1. Outermost Covering / Backing Layer",
+        desc: "<strong>Key Properties:</strong> Made of a drug-impermeable metallic plastic laminate. It is completely <strong>non-porous</strong> and <strong>prevents reverse (upward) flow of the drug</strong>."
+      },
+      reservoir: {
+        tag: "CORE CHAMBER • DRUG STORAGE",
+        title: "2. Drug Reservoir Chamber",
+        desc: "<strong>Key Properties:</strong> The desired drug (such as <strong>Scopolamine</strong> for motion sickness or <strong>Nitroglycerin</strong> for angina) is reserved safely between the Outermost Backing Layer and the Rate-Controlling Polymeric Membrane."
+      },
+      membrane: {
+        tag: "LAYER 2 • RATE CONTROL",
+        title: "3. Rate-Controlling Polymeric Membrane",
+        desc: "<strong>Key Properties:</strong> A specialized <strong>porous membrane</strong> that meters and slowly releases the drug molecules downward toward the skin to maintain a constant plasma concentration."
+      },
+      adhesive: {
+        tag: "LAYER 3 • SKIN ADHESION & LINER",
+        title: "4. Adhesive Layer (+ Peel-Off Liner)",
+        desc: "<strong>Key Properties:</strong> Contains an adhesive chemical that sticks the patch onto the skin. A protective <strong>release liner</strong> covers the front and must be removed prior to applying the patch."
+      }
+    };
+
+    function setupLabs() {
+      document.querySelectorAll(".inj-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const key = btn.getAttribute("data-inj");
+          const cfg = INJ_CONFIG[key];
+          if (!cfg) return;
+          document.getElementById("angleBadge").textContent = cfg.badge;
+          [0, 1, 2, 3].forEach(i => {
+            const rect = document.getElementById("layerRect" + i);
+            if (i === cfg.layerIdx) {
+              rect.setAttribute("stroke", cfg.color);
+              rect.setAttribute("stroke-width", "3");
+            } else {
+              rect.setAttribute("stroke", "#475569");
+              rect.setAttribute("stroke-width", "1");
+            }
+          });
+          const line = document.getElementById("simNeedleLine");
+          line.setAttribute("x1", cfg.x1);
+          line.setAttribute("y1", cfg.y1);
+          line.setAttribute("x2", cfg.x2);
+          line.setAttribute("y2", cfg.y2);
+          line.setAttribute("stroke", cfg.color);
+
+          const depot = document.getElementById("simDepotCircle");
+          depot.setAttribute("cx", cfg.x2);
+          depot.setAttribute("cy", cfg.y2);
+          depot.setAttribute("fill", cfg.color);
+
+          document.getElementById("injTitle").textContent = cfg.title;
+          document.getElementById("injArea").innerHTML = cfg.area;
+          document.getElementById("injExamples").innerHTML = cfg.examples;
+          document.getElementById("injNotes").innerHTML = cfg.notes;
+
+          document.querySelectorAll(".inj-btn").forEach(b => {
+            if (b.getAttribute("data-inj") === key) {
+              b.className = "inj-btn px-3.5 py-2.5 rounded-xl text-xs font-bold border transition bg-sky-500 text-slate-950 border-sky-300";
+            } else {
+              b.className = "inj-btn px-3.5 py-2.5 rounded-xl text-xs font-bold border transition bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800";
+            }
+          });
+        });
+      });
+
+      document.querySelectorAll(".patch-layer-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const key = btn.getAttribute("data-patch");
+          const cfg = PATCH_CONFIG[key];
+          if (!cfg) return;
+          document.getElementById("patchLayerTag").textContent = cfg.tag;
+          document.getElementById("patchDetailTitle").textContent = cfg.title;
+          document.getElementById("patchDetailDesc").innerHTML = cfg.desc;
+          document.querySelectorAll(".patch-layer-btn").forEach(b => {
+            if (b.getAttribute("data-patch") === key) {
+              b.className = "patch-layer-btn w-full text-left p-3.5 rounded-xl border-2 transition bg-sky-500/20 border-sky-400 text-white";
+            } else {
+              b.className = "patch-layer-btn w-full text-left p-3.5 rounded-xl border transition bg-slate-900 border-slate-700 hover:bg-slate-800 text-white";
+            }
+          });
+        });
+      });
+    }
+
+    // ==================== FLASHCARDS & QUIZ ====================
+    function renderFlashcard() {
+      const card = FLASHCARDS_DATA[fcOrder[fcIndex]];
+      document.getElementById("fcCounter").textContent = `Card ${fcIndex + 1} of ${FLASHCARDS_DATA.length}`;
+      document.getElementById("fcTopicTag").textContent = card.topic;
+      if (!fcFlipped) {
+        document.getElementById("fcSideBadge").textContent = "QUESTION SIDE (Click to Flip)";
+        document.getElementById("fcMainText").textContent = card.q;
+        document.getElementById("fcSubText").textContent = "Think of the answer, then click to verify!";
+      } else {
+        document.getElementById("fcSideBadge").textContent = "ANSWER SIDE (Verified Notes)";
+        document.getElementById("fcMainText").textContent = card.a;
+        document.getElementById("fcSubText").textContent = "✓ Grounded in Document 2 (Routes of Drug Administration)";
+      }
+    }
+
+    function setupFlashcards() {
+      const box = document.getElementById("flashcardBox");
+      const flipBtn = document.getElementById("fcFlipBtn");
+      const prevBtn = document.getElementById("fcPrevBtn");
+      const nextBtn = document.getElementById("fcNextBtn");
+      const shuffleBtn = document.getElementById("fcShuffleBtn");
+
+      const toggleFlip = () => {
+        fcFlipped = !fcFlipped;
+        renderFlashcard();
+      };
+      box.addEventListener("click", toggleFlip);
+      flipBtn.addEventListener("click", toggleFlip);
+
+      prevBtn.addEventListener("click", () => {
+        fcIndex = (fcIndex - 1 + FLASHCARDS_DATA.length) % FLASHCARDS_DATA.length;
+        fcFlipped = false;
+        renderFlashcard();
+      });
+      nextBtn.addEventListener("click", () => {
+        fcIndex = (fcIndex + 1) % FLASHCARDS_DATA.length;
+        fcFlipped = false;
+        renderFlashcard();
+      });
+      shuffleBtn.addEventListener("click", () => {
+        for (let i = fcOrder.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [fcOrder[i], fcOrder[j]] = [fcOrder[j], fcOrder[i]];
+        }
+        fcIndex = 0;
+        fcFlipped = false;
+        renderFlashcard();
+        showToast("Flashcards shuffled!");
+      });
+      renderFlashcard();
+    }
+
+    function renderQuiz() {
+      const container = document.getElementById("quizContainer");
+      let score = 0;
+      Object.keys(quizAnswers).forEach(qIdx => {
+        if (quizAnswers[qIdx] === QUIZ_DATA[qIdx].correct) score++;
+      });
+      document.getElementById("quizScoreBadge").textContent = `Score: ${score} / ${QUIZ_DATA.length}`;
+
+      container.innerHTML = QUIZ_DATA.map((item, qIdx) => {
+        const chosen = quizAnswers[qIdx];
+        const hasAnswered = chosen !== undefined;
+        return `
+          <div class="bg-slate-900/90 rounded-2xl p-4 sm:p-5 border border-slate-800 space-y-3">
+            <h3 class="text-sm sm:text-base font-bold text-white">${item.q}</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              ${item.options.map((opt, oIdx) => {
+                let btnStyle = "bg-slate-950 text-slate-200 border-slate-800 hover:border-sky-400";
+                if (hasAnswered) {
+                  if (oIdx === item.correct) {
+                    btnStyle = "bg-emerald-500/25 text-emerald-200 border-emerald-400 font-bold";
+                  } else if (oIdx === chosen) {
+                    btnStyle = "bg-rose-500/25 text-rose-200 border-rose-400";
+                  } else {
+                    btnStyle = "bg-slate-950/50 text-slate-500 border-slate-800/50";
+                  }
+                }
+                return `
+                  <button type="button" data-q="${qIdx}" data-o="${oIdx}" class="quiz-opt-btn text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm border transition ${btnStyle}">
+                    ${opt}
+                  </button>
+                `;
+              }).join("")}
+            </div>
+            ${hasAnswered ? `
+              <div class="p-3 rounded-xl text-xs sm:text-sm ${chosen === item.correct ? 'bg-emerald-950/60 text-emerald-300 border border-emerald-500/30' : 'bg-rose-950/60 text-rose-300 border border-rose-500/30'}">
+                ${item.explain}
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }).join("");
+
+      container.querySelectorAll(".quiz-opt-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const q = Number(btn.getAttribute("data-q"));
+          const o = Number(btn.getAttribute("data-o"));
+          quizAnswers[q] = o;
+          renderQuiz();
+        });
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const tabs = ["notes", "labs", "flashcards", "quiz", "youtube"];
+      document.querySelectorAll(".nav-tab").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-tab");
+          tabs.forEach(t => {
+            const sec = document.getElementById("tab-" + t);
+            if (t === target) sec.classList.remove("hidden");
+            else sec.classList.add("hidden");
+          });
+          document.querySelectorAll(".nav-tab").forEach(b => {
+            if (b.getAttribute("data-tab") === target) {
+              b.className = "nav-tab px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-sky-500 text-slate-950 shadow-md shadow-sky-500/20";
+            } else {
+              b.className = "nav-tab px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-slate-900 text-slate-300 hover:bg-slate-800";
+            }
+          });
+        });
+      });
+
+      document.getElementById("langToggleBtn").addEventListener("click", () => {
+        bilingualMode = !bilingualMode;
+        document.getElementById("langToggleLabel").textContent = bilingualMode ? "Mode: Hinglish + English" : "Mode: Pure Exam English";
+        document.getElementById("langBadgeDot").className = bilingualMode ? "w-2 h-2 rounded-full bg-sky-400" : "w-2 h-2 rounded-full bg-emerald-400";
+        renderNotes();
+      });
+
+      document.getElementById("printBtn").addEventListener("click", () => window.print());
+
+      const toggleMindmapBtn = document.getElementById("toggleMasterMindmapBtn");
+      const masterMindmapBody = document.getElementById("masterMindmapBody");
+      toggleMindmapBtn.addEventListener("click", () => {
+        masterMindmapBody.classList.toggle("hidden");
+      });
+      document.querySelectorAll(".mindmap-jump-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          activeTopicFilter = btn.getAttribute("data-jump-topic");
+          renderTopicFilterPills();
+          renderNotes();
+          document.getElementById("notesContainer").scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+      document.getElementById("searchNotesInput").addEventListener("input", renderNotes);
+      document.getElementById("clearSearchBtn").addEventListener("click", () => {
+        document.getElementById("searchNotesInput").value = "";
+        activeTopicFilter = "all";
+        renderTopicFilterPills();
+        renderNotes();
+      });
+
+      document.getElementById("resetQuizBtn").addEventListener("click", () => {
+        quizAnswers = {};
+        renderQuiz();
+        showToast("Quiz reset!");
+      });
+
+      updateMasteryUI();
+      renderTopicFilterPills();
+      renderNotes();
+      setupLabs();
+      setupFlashcards();
+      renderQuiz();
+      populateYoutubeBox();
+    });
+  </script>
+</body>
+</html>
